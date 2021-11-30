@@ -42,19 +42,19 @@
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Numero de Vehiculos</label>
                             <div class="col-lg-9">
-                                <input type="text" class="form-control" name="numeroVehiculos" th:value="${zona.numeroVehiculos}" required/>
+                                <input type="number" class="form-control" name="numeroVehiculos" th:value="${zona.numeroVehiculos}" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Profundidad Garage</label>
                             <div class="col-lg-9">
-                                <input type="text" class="form-control" name="profundidadGarage" th:value="${zona.profundidadGarage}" required/>
+                                <input type="number" step="any" min="1" class="form-control" name="profundidadGarage" th:value="${zona.profundidadGarage}" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Ancho Garage</label>
                             <div class="col-lg-9">
-                                <input type="text" class="form-control" name="anchoGarage" th:value="${zona.anchoGarage}" required/>
+                                <input type="number" step="any" min="1" class="form-control" name="anchoGarage" th:value="${zona.anchoGarage}" required/>
                             </div>
                         </div>
                         <div class="form-group">
