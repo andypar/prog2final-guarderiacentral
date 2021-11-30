@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Zonas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-zonas-3.jpg">
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <h1>Zonas</h1>
+                <br>
+                <div class="row">
+                    <a th:href="@{/zona/crear}" class="btn btn-primary">Crear Nueva Zona</a>
+                </div>
+                <br>
+                <br>
+                <h2>Listado de Zonas</h2>
+                <br>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Letra</th>
+                        <th>Tipo de Vehiculos</th>
+                        <th>Numero de Vehiculos</th>
+                        <th>Profundidad del Garage</th>
+                        <th>Ancho del Garage</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="zona : ${zonas}">
+                        <td th:text="${zona.letra}"></td>
+                        <td th:text="${zona.tipoVehiculos}">
+                        <td th:text="${zona.numeroVehiculos}">
+                        <td th:text="${zona.profundidadGarage}">
+                        <td th:text="${zona.anchoGarage}">
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/zona/eliminar}">
+                                <input type="hidden" name="id" th:value="${zona.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Eliminar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/zona/modificar}">
+                                <input type="hidden" name="id" th:value="${zona.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Modificar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <a class="btn btn-primary" name="button" th:href="@{/menu-admin}">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

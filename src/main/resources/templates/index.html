@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Guarderia Central</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-rodantes-2.jpg" style="color: black">
+<strong>
+    <h1 class="text-center"> Bienvenid@ a Guarderia Central </h1>
+</strong>
+<br>
+<div class="col-lg-4 col-md-6 col-sm-4">
+    <form method="post" th:action="@{/login}" enctype="multipart/form-data"
+          class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                <label class="col-lg-3 control-label" style="color: black">Usuario</label>
+                <div class="col-lg-9">
+                    <input type="text" class="form-control" name="user"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label" style="color: black">Contraseña</label>
+                <div class="col-lg-9">
+                    <input type="password" class="form-control" name="pwd"/>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" name="button" style="color: white">Ingresar</button>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

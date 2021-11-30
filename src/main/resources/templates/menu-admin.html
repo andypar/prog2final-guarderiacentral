@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-admin-2.jpeg" style="color: black">
+<strong>
+    <h1 class="text-left"> Menu Administrador </h1>
+</strong>
+<br>
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <div class="row">
+                    <a th:href="@{/socios}" class="btn btn-primary">Socios</a>
+                </div>
+            </div>
+            <br>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <br>
+                <div class="row">
+                    <a th:href="@{/empleados}" class="btn btn-primary">Empleados</a>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <br>
+                <div class="row">
+                    <a th:href="@{/zonas}" class="btn btn-primary">Zonas</a>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <br>
+                <div class="row">
+                    <a th:href="@{/garages}" class="btn btn-primary">Garages</a>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <br>
+                <div class="row">
+                    <a th:href="@{/vehiculos}" class="btn btn-primary">Vehiculos</a>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <br>
+                <br>
+                <div class="row">
+                    <a href="/" class="btn btn-primary">Salir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

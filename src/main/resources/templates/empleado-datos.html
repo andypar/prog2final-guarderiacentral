@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Empleado</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-local-3.jpg">
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-5">
+                <h2>Mis Datos</h2>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Codigo</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="codigo" th:value="${empleado.codigo}" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Nombre Completo</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="nombre" th:value="${empleado.nombre}" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Direccion</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="direccion" th:value="${empleado.direccion}"
+                               readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Telefono</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="telefono" th:value="${empleado.telefono}"
+                               readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">DNI</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="dni" th:value="${empleado.dni}" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Usuario</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="user" th:value="${empleado.user}" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Contraseña</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="pwd" th:value="${empleado.pwd}" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Especialidad</label>
+                    <div class="col-md-9">
+                        <label class="custom-control-label" for="sm_manana">Cuidador Matutino</label>
+                        <input class="custom-control-input" type="radio" name="especialidad" value="Cuidador Matutino"
+                               th:checked="${empleado.especialidad=='Cuidador Matutino'}"
+                               id="sm_manana" checked disabled>
+                        <label class="custom-control-label" for="sm_tarde">Cuidador Tarde</label>
+                        <input class="custom-control-input" type="radio" name="especialidad" value="Cuidador Tarde"
+                               th:checked="${empleado.especialidad=='Cuidador Tarde'}"
+                               id="sm_tarde" disabled>
+                        <label class="custom-control-label" for="sm_noche">Cuidador Noche</label>
+                        <input class="custom-control-input" type="radio" name="especialidad" value="Cuidador Noche"
+                               th:checked="${empleado.especialidad=='Cuidador Noche'}"
+                               id="sm_noche" disabled>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-79 col-md-8 col-sm-7">
+            <h2>Mis Zonas Asignadas</h2>
+            <br>
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Letra</th>
+                    <th>Tipo de Vehiculos</th>
+                    <th>Numero de Vehiculos</th>
+                    <th>Profundidad del Garage</th>
+                    <th>Ancho del Garage</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="zona : ${zonasasignadas}">
+                    <td th:text="${zona.zona.letra}"></td>
+                    <td th:text="${zona.zona.tipoVehiculos}">
+                    <td th:text="${zona.zona.numeroVehiculos}">
+                    <td th:text="${zona.zona.profundidadGarage}">
+                    <td th:text="${zona.zona.anchoGarage}">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <form method="post" th:action="@{/menu-empleado}">
+                    <br>
+                    <br>
+                    <input type="hidden" name="id" th:value="${empleado.id}">
+                    <button type="submit" class="btn btn-primary" name="button">Volver</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+</body>
+</html>

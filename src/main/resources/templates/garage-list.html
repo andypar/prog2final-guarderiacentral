@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Garages</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-garages-3.jpg">
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <h1>Garages</h1>
+                <br>
+                <div class="row">
+                    <a th:href="@{/garage/crear}" class="btn btn-primary">Crear Nuevo Garage</a>
+                </div>
+                <br>
+                <br>
+                <h2>Listado de Garages</h2>
+                <br>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Lectura del Contador de Luz</th>
+                        <th>Tiene Servicios de Mantenimiento</th>
+                        <th>Zona</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="garage : ${garages}">
+                        <td th:text="${garage.numero}"></td>
+                        <td th:text="${garage.lecturaContadorLuz}">
+                        <td th:text="${garage.tieneServiciosMantenimiento ? 'Si': 'No'}">
+                        <td th:text="${garage?.zona?.letra}">
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/garage/eliminar}">
+                                <input type="hidden" name="id" th:value="${garage.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Eliminar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/garage/modificar}">
+                                <input type="hidden" name="id" th:value="${garage.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Modificar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <a class="btn btn-primary" name="button" th:href="@{/menu-admin}">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Zona</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-zonas-3.jpg">
+<div class="container">
+    <div class="page-header" id="banner">
+
+        <div class="row">
+            <div class="col-lg-6 col-md-7 col-sm-6">
+                <h1>Modificar Zona</h1>
+
+                <form th:action="@{/zona/guardar_modificacion}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <input type="hidden" name="id" th:value="${zona.id}">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Letra</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" name="letra" th:value="${zona.letra}" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Tipo de Vehiculos</label>
+                            <div class="col-md-9">
+                                <label class="custom-control-label" for="sm_caravana">Caravana</label>
+                                <input class="custom-control-input" type="radio" name="tipoVehiculos" value="Caravana" th:checked="${zona.tipoVehiculos=='Caravana'}"
+                                       id="sm_caravana" checked>
+                                <label class="custom-control-label" for="sm_motorhome">Motorhome</label>
+                                <input class="custom-control-input" type="radio" name="tipoVehiculos" value="Motorhome" th:checked="${zona.tipoVehiculos=='Motorhome'}"
+                                       id="sm_motorhome">
+                                <label class="custom-control-label" for="sm_trailer">Trailer</label>
+                                <input class="custom-control-input" type="radio" name="tipoVehiculos" value="Trailer" th:checked="${zona.tipoVehiculos=='Trailer'}"
+                                       id="sm_trailer">
+                                <label class="custom-control-label" for="sm_casarodante">Casa Rodante</label>
+                                <input class="custom-control-input" type="radio" name="tipoVehiculos" value="Casa Rodante" th:checked="${zona.tipoVehiculos=='Casa Rodante'}"
+                                       id="sm_casarodante">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Numero de Vehiculos</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" name="numeroVehiculos" th:value="${zona.numeroVehiculos}" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Profundidad Garage</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" name="profundidadGarage" th:value="${zona.profundidadGarage}" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Ancho Garage</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" name="anchoGarage" th:value="${zona.anchoGarage}" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12 col-lg-offset-3">
+                                <button type="submit" class="btn btn-primary" name="button">Modificar</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <form>
+                                    <a class="btn btn-primary" name="button" th:href="@{/zonas}">Volver</a>
+                                </form>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Empleado</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-local-2.jpg" style="color: white">
+<strong>
+    <h1 class="text-left"> Menu Empleado </h1>
+</strong>
+<br>
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <br>
+                <div class="row">
+                    <form method="post" th:action="@{/empleado-datos}">
+                        <input type="hidden" name="id" th:value="${id}">
+                        <button type="submit" class="btn btn-primary" name="button">Ver Datos</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <br>
+                <br>
+                <div class="row">
+                    <a href="/" class="btn btn-primary">Salir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

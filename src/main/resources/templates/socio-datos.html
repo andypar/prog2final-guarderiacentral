@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Socio</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body body background="/Slider-panoramico-3.jpg">
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-5">
+                <h2>Mis Datos</h2>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Nombre Completo</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="nombre" th:value="${socio.nombre}" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Direccion</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="direccion" th:value="${socio.direccion}"
+                               readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Telefono</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="telefono" th:value="${socio.telefono}"
+                               readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">DNI</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="dni" th:value="${socio.dni}" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Usuario</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="user" th:value="${socio.user}" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Contraseña</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="pwd" th:value="${socio.pwd}" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Fecha de Ingreso</label>
+                    <div class="col-lg-9">
+                        <input type="date" name="fechaIngresoGuarderia"
+                               th:value="${socio.fechaIngresoGuarderia}" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-11 col-md-10 col-sm-9">
+            <br>
+            <br>
+            <h2>Mis Vehiculos</h2>
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Matricula</th>
+                    <th>Marca</th>
+                    <th>Tipo</th>
+                    <th>Ancho</th>
+                    <th>Largo</th>
+                    <th>Fecha de Asignacion a Garage</th>
+                    <th>Numero de Garage</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="vehiculo : ${vehiculoscomprados}">
+                    <td th:text="${vehiculo.matricula}"></td>
+                    <td th:text="${vehiculo.marca}">
+                    <td th:text="${vehiculo.tipo}">
+                    <td th:text="${vehiculo.ancho}">
+                    <td th:text="${vehiculo.largo}">
+                    <td th:text="${vehiculo.fechaAsignacionGarage}">
+                    <td th:text="${vehiculo.garage.numero}">
+                    </td>
+                    <td>
+            </table>
+            <br>
+            <br>
+            <div class="col-lg-9 col-md-8 col-sm-7">
+                <h2>Mis Garages</h2>
+                <br>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Lectura del Contador de Luz</th>
+                        <th>Tiene Servicios de Mantenimiento</th>
+                        <th>Zona</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="garage : ${garagescomprados}">
+                        <td th:text="${garage.numero}"></td>
+                        <td th:text="${garage.lecturaContadorLuz}">
+                        <td th:text="${garage.tieneServiciosMantenimiento ? 'Si': 'No'}">
+                        <td th:text="${garage?.zona?.letra}">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <form method="post" th:action="@{/menu-socio}">
+                        <br>
+                        <br>
+                        <input type="hidden" name="id" th:value="${socio.id}">
+                        <button type="submit" class="btn btn-primary" name="button">Volver</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
