@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Zona</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-zonas-3.jpg">
+<div class="container">
+    <div class="page-header" id="banner">
+
+        <div class="row">
+            <div class="col-lg-8 col-md-9 col-sm-8">
+                <h1>Crear Zona</h1>
+                <form th:action="@{/zona/crear}" method="post" enctype="multipart/form-data"
+                      class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Letra</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" name="letra" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Tipo de Vehiculos</label>
+                            <div class="col-md-8">
+                                <label class="custom-control-label" for="sm_caravana">Caravana</label>
+                                <input class="custom-control-input" type="radio" name="tipoVehiculos" value="Caravana"
+                                       id="sm_caravana" checked>
+                                <label class="custom-control-label" for="sm_motorhome">Motorhome</label>
+                                <input class="custom-control-input" type="radio" name="tipoVehiculos" value="Motorhome"
+                                       id="sm_motorhome">
+                                <label class="custom-control-label" for="sm_trailer">Trailer</label>
+                                <input class="custom-control-input" type="radio" name="tipoVehiculos" value="Trailer"
+                                       id="sm_trailer">
+                                <label class="custom-control-label" for="sm_casarodante">Casa Rodante</label>
+                                <input class="custom-control-input" type="radio" name="tipoVehiculos" value="Casa Rodante"
+                                       id="sm_casarodante">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Numero de Vehiculos</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" name="numeroVehiculos" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Profundidad Garage</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" name="profundidadGarage" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Ancho Garage</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" name="anchoGarage" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12 col-lg-offset-3">
+                                <button type="submit" class="btn btn-primary" name="button">Crear</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div >
+                                <form>
+                                    <a class="btn btn-primary" name="button" th:href="@{/zonas}">Volver</a>
+                                </form>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

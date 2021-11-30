@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Vehiculo</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-vehiculo-3.jpg">
+<div class="container">
+    <div class="page-header" id="banner">
+
+        <div class="row">
+            <div class="col-lg-8 col-md-9 col-sm-8">
+                <h1>Crear Vehiculo</h1>
+                <br>
+                <form th:action="@{/vehiculo/crear}" method="post" enctype="multipart/form-data"
+                      class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Matricula</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="matricula" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Marca</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="marca" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Tipo</label>
+                            <div class="col-md-5">
+                                <label class="custom-control-label" for="sm_caravana">Caravana</label>
+                                <input class="custom-control-input" type="radio" name="tipo" value="Caravana"
+                                       id="sm_caravana" checked>
+                                <label class="custom-control-label" for="sm_motorhome">Motorhome</label>
+                                <input class="custom-control-input" type="radio" name="tipo" value="Motorhome"
+                                       id="sm_motorhome">
+                                <label class="custom-control-label" for="sm_trailer">Trailer</label>
+                                <input class="custom-control-input" type="radio" name="tipo" value="Trailer"
+                                       id="sm_trailer">
+                                <label class="custom-control-label" for="sm_casarodante">Casa Rodante</label>
+                                <input class="custom-control-input" type="radio" name="tipo" value="Casa Rodante"
+                                       id="sm_casarodante">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Largo</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="largo" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Ancho</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="ancho" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Garage</label>
+                            <div class="col-lg-5">
+                                <select name="garageId">
+                                    <option th:each="garage : ${garages}" th:value="${garage.id}" th:text="${'Nro: ' + garage.numero + ' - ' + garage.zona.tipoVehiculos}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Fecha de Asignacion a Garage</label>
+                            <div class="col-lg-5">
+                                <input type="date" name="fechaAsignacionGarage" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Socio</label>
+                            <div class="col-lg-5">
+                                <select name="socioId">
+                                    <option th:each="socio : ${socios}" th:value="${socio.id}" th:text="${'DNI: '+ socio.dni + ' - ' +  socio.nombre}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-5 col-lg-offset-5">
+                                <button type="submit" class="btn btn-primary" name="button">Crear</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <form>
+                                    <a class="btn btn-primary" name="button" th:href="@{/vehiculos}">Volver</a>
+                                </form>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Empleados</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-empleado-3.jpeg">
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-13 col-md-12 col-sm-11">
+                <h1>Empleados</h1>
+                <br>
+                <div class="row">
+                    <a th:href="@{/empleado/crear}" class="btn btn-primary">Crear Nuevo Empleado</a>
+                </div>
+                <br>
+                <br>
+                <h2>Listado de Empleados</h2>
+                <br>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre Completo</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>DNI</th>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                        <th>Especialidad</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="empleado : ${empleados}">
+                        <td th:text="${empleado.codigo}">
+                        <td th:text="${empleado.nombre}"></td>
+                        <td th:text="${empleado.direccion}">
+                        <td th:text="${empleado.telefono}">
+                        <td th:text="${empleado.dni}">
+                        <td th:text="${empleado.user}">
+                        <td th:text="${empleado.pwd}">
+                        <td th:text="${empleado.especialidad}">
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/empleado/eliminar}">
+                                <input type="hidden" name="id" th:value="${empleado.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Eliminar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/empleado/modificar}">
+                                <input type="hidden" name="id" th:value="${empleado.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Modificar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/empleado/zonas}">
+                                <input type="hidden" name="id" th:value="${empleado.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Zonas</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <a class="btn btn-primary" name="button" th:href="@{/menu-admin}">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Socios</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-socio-3.jpg">
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-12 col-md-11 col-sm-10">
+                <h1>Socios</h1>
+                <br>
+                <div class="row">
+                    <a th:href="@{/socio/crear}" class="btn btn-primary">Crear Nuevo Socio</a>
+                </div>
+                <br>
+                <br>
+                <h2>Listado de Socios</h2>
+                <br>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>DNI</th>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                        <th>Fecha de Ingreso</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="socio : ${socios}">
+                        <td th:text="${socio.nombre}"></td>
+                        <td th:text="${socio.direccion}">
+                        <td th:text="${socio.telefono}">
+                        <td th:text="${socio.dni}">
+                        <td th:text="${socio.user}">
+                        <td th:text="${socio.pwd}">
+                        <td th:text="${socio.fechaIngresoGuarderia}">
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/socio/eliminar}">
+                                <input type="hidden" name="id" th:value="${socio.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Eliminar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/socio/modificar}">
+                                <input type="hidden" name="id" th:value="${socio.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Modificar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/socio/propiedades}">
+                                <input type="hidden" name="id" th:value="${socio.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Propiedades</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <a class="btn btn-primary" name="button" th:href="@{/menu-admin}">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

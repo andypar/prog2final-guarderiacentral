@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Zonas Asignadas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-empleado-3.jpeg">
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-11 col-md-10 col-sm-9">
+                <h1>Administrar Zonas</h1>
+                <br>
+                <br>
+                <h2>Zonas Disponibles</h2>
+                <br>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Letra</th>
+                        <th>Tipo de Vehiculos</th>
+                        <th>Numero de Vehiculos</th>
+                        <th>Profundidad del Garage</th>
+                        <th>Ancho del Garage</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="zona : ${zonasdisponibles}">
+                        <td th:text="${zona.letra}"></td>
+                        <td th:text="${zona.tipoVehiculos}">
+                        <td th:text="${zona.numeroVehiculos}">
+                        <td th:text="${zona.profundidadGarage}">
+                        <td th:text="${zona.anchoGarage}">
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/empleado/zonas/asignar}">
+                                <input type="hidden" name="id" th:value="${zona.id}">
+                                <input type="hidden" name="empleadoId" th:value="${empleadoId}">
+                                <button type="submit" class="btn btn-primary" name="button">Asignar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <h2>Zonas Asignadas</h2>
+                <br>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Letra</th>
+                        <th>Tipo de Vehiculos</th>
+                        <th>Numero de Vehiculos</th>
+                        <th>Profundidad del Garage</th>
+                        <th>Ancho del Garage</th>
+                        <th>Cantidad de Vehiculos a cargo</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="zona : ${zonasasignadas}">
+                        <td th:text="${zona.zona.letra}"></td>
+                        <td th:text="${zona.zona.tipoVehiculos}"></td>
+                        <td th:text="${zona.zona.numeroVehiculos}"></td>
+                        <td th:text="${zona.zona.profundidadGarage}"></td>
+                        <td th:text="${zona.zona.anchoGarage}"></td>
+                        <td th:text="${zona.numeroVehiculosACargo}"></td>
+                        <td>
+                            <form method="post" th:action="@{/empleado/zonas/desasignar}">
+                                <input type="hidden" name="id" th:value="${zona.zona.id}">
+                                <input type="hidden" name="empleadoId" th:value="${empleadoId}">
+                                <button type="submit" class="btn btn-primary" name="button">Desasignar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <a class="btn btn-primary" name="button" th:href="@{/empleados}">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

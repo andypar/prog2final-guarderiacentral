@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Vehiculos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-vehiculo-3.jpg">
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-14 col-md-12 col-sm-11">
+                <h1>Vehiculos</h1>
+                <br>
+                <div class="row">
+                    <a th:href="@{/vehiculo/crear}" class="btn btn-primary">Crear Nuevo Vehiculo</a>
+                </div>
+                <br>
+                <br>
+                <h2>Listado de Vehiculos</h2>
+                <br>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Matricula</th>
+                        <th>Marca</th>
+                        <th>Tipo</th>
+                        <th>Ancho</th>
+                        <th>Largo</th>
+                        <th>Fecha Asignacion Garage</th>
+                        <th>Nro de Garage</th>
+                        <th>Socio DNI</th>
+                        <th>Socio Nombre</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="vehiculo : ${vehiculos}">
+                        <td th:text="${vehiculo.matricula}"></td>
+                        <td th:text="${vehiculo.marca}">
+                        <td th:text="${vehiculo.tipo}">
+                        <td th:text="${vehiculo.ancho}">
+                        <td th:text="${vehiculo.largo}">
+                        <td th:text="${vehiculo.fechaAsignacionGarage}">
+                        <td th:text="${vehiculo?.garage?.numero}">
+                        <td th:text="${vehiculo?.socio?.dni}">
+                        <td th:text="${vehiculo?.socio?.nombre}">
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/vehiculo/eliminar}">
+                                <input type="hidden" name="id" th:value="${vehiculo.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Eliminar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/vehiculo/modificar}">
+                                <input type="hidden" name="id" th:value="${vehiculo.id}">
+                                <button type="submit" class="btn btn-primary" name="button">Modificar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <a class="btn btn-primary" name="button" th:href="@{/menu-admin}">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

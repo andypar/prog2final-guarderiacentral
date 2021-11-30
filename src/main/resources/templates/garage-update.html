@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Garage</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body background="/Slider-garages-3.jpg">
+<div class="container">
+    <div class="page-header" id="banner">
+
+        <div class="row">
+            <div class="col-lg-8 col-md-9 col-sm-8">
+                <h1>Modificar Garage</h1>
+                <br>
+                <form th:action="@{/garage/guardar_modificacion}" method="post" enctype="multipart/form-data"
+                      class="form-horizontal">
+                    <input type="hidden" name="id" th:value="${garage.id}">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Numero</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="numero" th:value="${garage.numero}" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Lectura del Contador de Luz</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="lecturaContadorLuz"
+                                       th:value="${garage.lecturaContadorLuz}" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Tiene Servicios de Mantenimiento</label>
+                            <div class="col-lg-5">
+                                <label class="custom-control-label" for="sm_true">Si</label>
+                                <input class="custom-control-input" type="radio" name="tieneServiciosMantenimiento" value="true"
+                                       th:checked="${garage.tieneServiciosMantenimiento}"
+                                       id="sm_true">
+                                <label class="custom-control-label" for="sm_false">No</label>
+                                <input class="custom-control-input" type="radio" name="tieneServiciosMantenimiento" value="false"
+                                       th:checked="${!garage.tieneServiciosMantenimiento}"
+                                       id="sm_false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 control-label">Zona</label>
+                            <div class="col-lg-5">
+                                <select name="zonaId">
+                                    <option th:each="zona : ${zonas}" th:value="${zona.id}" th:text="${zona.letra}" th:selected="${zonaseleccionada?.id == zona.id}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <div class="col-lg-5 col-lg-offset-5">
+                                <button type="submit" class="btn btn-primary" name="button">Modificar</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <form>
+                                    <a class="btn btn-primary" name="button" th:href="@{/garages}">Volver</a>
+                                </form>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
