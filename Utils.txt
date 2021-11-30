@@ -1,0 +1,19 @@
+Tutorial con la estructura base del proyecto
+https://www.toptal.com/spring/beginners-guide-to-mvc-with-spring-framework
+
+Repo de github del que habla el articulo anterior
+https://github.com/pista/developersdatabse
+
+Usar mysql con spring 
+https://spring.io/guides/gs/accessing-data-mysql/
+
+Tutorial con la herencia a nivel Hibernate
+https://www.baeldung.com/hibernate-inheritance
+
+Explicación del FetchMode
+https://www.baeldung.com/hibernate-fetchmode
+
+Bootstrap
+https://bootswatch.com/3/cerulean/
+
+
