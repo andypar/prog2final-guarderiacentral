@@ -18,7 +18,7 @@ Instalar MySQL<br>
 
 ### 3) INSERTO ADMIN PARA LOGUEARME POR PRIMERA VEZ:
 
-Ejecutar el siguiente codigo en MySQL:<br>
+Ejecutar el siguiente codigo en MySQL:<br><br>
 `creacion_admin.mysql`
 
 ### 4) CONECTARSE A LOCALHOST EN PUERTO 8000:
