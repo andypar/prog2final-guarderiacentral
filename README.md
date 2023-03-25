@@ -1,6 +1,6 @@
 # **prog2final-guarderiacentral**
 
-### *Final Materia Programación II -  Andrea P. Rodriguez*
+### *Final Materia Programación II*
 
 ### 0) REQUISITOS:
 
