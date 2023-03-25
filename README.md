@@ -16,6 +16,11 @@ Instalar MySQL
 
 `mvn spring-boot:run`
 
-### 3) Abrir localhost en puerto 8080:
+### 3) INSERTO ADMIN PARA LOGUEARME POR PRIMERA VEZ:
+
+Ejecutar el siguiente codigo en MySQL:
+`creacion_admin.mysql`
+
+### 4) CONECTARSE A LOCALHOST EN PUERTO 8000:
 
 `http://localhost:8080/`
